@@ -1,13 +1,13 @@
 
 -- USUARIOS
-INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo)
-VALUES ('William', 'Dias', 'william@email.com', '123456', true);
+INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo, role)
+VALUES ('William', 'Dias', 'william@email.com', '123456', true, 'ADMIN');
 
-INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo)
-VALUES ('João', 'Silva', 'joao@email.com', '123456', true);
+INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo, role)
+VALUES ('João', 'Silva', 'joao@email.com', '123456', true, 'USER');
 
-INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo)
-VALUES ('Maria', 'Souza', 'maria@email.com', '123456', false);
+INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo, role)
+VALUES ('Maria', 'Souza', 'maria@email.com', '123456', false, 'USER');
 
 -- ENDERECOS
 INSERT INTO TB_ENDERECOS (logradouro, estado, bairro, cidade, cep)
