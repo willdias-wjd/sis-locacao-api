@@ -1,5 +1,6 @@
 package com.sislocacao.adapter.output.repository.jpa.entity;
 
+import com.sislocacao.core.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,4 +23,8 @@ public class UsuarioEntity {
     private String email;
     private String senha;
     private Boolean ativo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 }
