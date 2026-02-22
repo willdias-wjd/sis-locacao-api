@@ -9,4 +9,6 @@ public interface ILocacaoRepository {
     Locacao salvarLocacao(Locacao locacao);
     Optional<Locacao> buscarLocacaoPorIdImovel(Long id);
     List<Locacao> buscarLocacoes();
+    void excluirLocacao(long id);
+    Locacao buscarLocacaoPorId(Long id);
 }

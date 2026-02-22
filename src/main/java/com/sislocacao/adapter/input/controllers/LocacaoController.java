@@ -7,6 +7,7 @@ import com.sislocacao.core.domain.model.Locacao;
 import com.sislocacao.core.usecase.locacao.command.SalvarLocacaoCommand;
 import com.sislocacao.ports.input.AtualizarLocacaoInputPort;
 import com.sislocacao.ports.input.BuscarLocacoesInputPort;
+import com.sislocacao.ports.input.ExcluirLocacaoInputPort;
 import com.sislocacao.ports.input.SalvarLocacaoInputPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +22,14 @@ public class LocacaoController {
     private final SalvarLocacaoInputPort salvarLocacaoInputPort;
     private final BuscarLocacoesInputPort buscarLocacoesInputPort;
     private final AtualizarLocacaoInputPort atualizarLocacaoInputPort;
+    private final ExcluirLocacaoInputPort excluirLocacaoInputPort;
 
-    public LocacaoController(LocacaoMapper locacaoMapper, SalvarLocacaoInputPort salvarLocacaoInputPort, BuscarLocacoesInputPort buscarLocacoesInputPort, AtualizarLocacaoInputPort atualizarLocacaoInputPort) {
+    public LocacaoController(LocacaoMapper locacaoMapper, SalvarLocacaoInputPort salvarLocacaoInputPort, BuscarLocacoesInputPort buscarLocacoesInputPort, AtualizarLocacaoInputPort atualizarLocacaoInputPort, ExcluirLocacaoInputPort excluirLocacaoInputPort) {
         this.locacaoMapper = locacaoMapper;
         this.salvarLocacaoInputPort = salvarLocacaoInputPort;
         this.buscarLocacoesInputPort = buscarLocacoesInputPort;
         this.atualizarLocacaoInputPort = atualizarLocacaoInputPort;
+        this.excluirLocacaoInputPort = excluirLocacaoInputPort;
     }
 
     @PostMapping
@@ -50,5 +53,11 @@ public class LocacaoController {
         Locacao locacao = atualizarLocacaoInputPort.executar(command, locacaoId);
         LocacaoResponse response = locacaoMapper.paraLocacaoResponse(locacao);
         return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluirLocacao(@PathVariable Long id){
+        excluirLocacaoInputPort.executar(id);
+        return ResponseEntity.noContent().build();
     }
 }
