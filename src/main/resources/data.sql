@@ -27,17 +27,17 @@ INSERT INTO TB_IMOVEIS (descricao, garagem, comodos, numero, endereco_id)
 VALUES ('Apartamento 3 quartos', true, 7, 'CASA 02-B', 1);
 
 -- INQUILINOS
-INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Carlos', 'Pereira', '123.456.789-01', '12.345.678-9', '(11) 91234-5678', 'carlos.pereira@email.com', 'Brasileira', 'Solteiro', 'Analista de Sistemas', 'Masculino', '1990-05-12');
+INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Carlos', 'Pereira', '123.456.789-01', '12.345.678-9', '(11) 91234-5678', 'carlos.pereira@email.com', 'Brasileira', 'Solteiro', 'Analista de Sistemas', 'Masculino', '1990-05-12', true);
 
-INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Ana', 'Oliveira', '987.654.321-00', '98.765.432-1', '(21) 99876-5432', 'ana.oliveira@email.com', 'Brasileira', 'Casada', 'Professora', 'Feminino', '1987-09-23');
+INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Ana', 'Oliveira', '987.654.321-00', '98.765.432-1', '(21) 99876-5432', 'ana.oliveira@email.com', 'Brasileira', 'Casada', 'Professora', 'Feminino', '1987-09-23', true);
 
-INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Rafael', 'Mendes', '456.789.123-45', '45.678.912-3', '(31) 98765-4321', 'rafael.mendes@email.com', 'Brasileira', 'Solteiro', 'Engenheiro Civil', 'Masculino', '1992-01-08');
+INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Rafael', 'Mendes', '456.789.123-45', '45.678.912-3', '(31) 98765-4321', 'rafael.mendes@email.com', 'Brasileira', 'Solteiro', 'Engenheiro Civil', 'Masculino', '1992-01-08', true);
 
-INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Juliana', 'Costa', '321.654.987-99', '32.165.498-7', '(41) 99123-4567', 'juliana.costa@email.com', 'Brasileira', 'Divorciada', 'Designer Gráfica', 'Feminino', '1989-11-30');
+INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Juliana', 'Costa', '321.654.987-99', '32.165.498-7', '(41) 99123-4567', 'juliana.costa@email.com', 'Brasileira', 'Divorciada', 'Designer Gráfica', 'Feminino', '1989-11-30', true);
 
 -- LOCADORES
 INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)

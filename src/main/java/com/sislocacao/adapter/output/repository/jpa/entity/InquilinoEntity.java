@@ -34,7 +34,9 @@ public class InquilinoEntity {
     private String genero;
     private LocalDate dataNascimento;
 
+    private Boolean status;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "inquilino", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "inquilino", cascade = CascadeType.ALL)
     private List<LocacaoEntity> locacoesEntity = new ArrayList<>();
 }

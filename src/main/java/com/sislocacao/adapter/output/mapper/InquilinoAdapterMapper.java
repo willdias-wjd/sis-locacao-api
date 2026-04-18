@@ -10,4 +10,7 @@ public interface InquilinoAdapterMapper {
 
     @Mapping(target = "locacoesEntity", ignore = true)
     Inquilino paraInquilino(InquilinoEntity inquilino);
+
+    @Mapping(target = "locacoesEntity", ignore = true)
+    InquilinoEntity paraInquilinoEntity(Inquilino inquilino);
 }
