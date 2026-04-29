@@ -6,5 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface LocadorAdapterMapper {
-    Locador paraLocador(LocadorEntity Locador);
+    Locador paraLocador(LocadorEntity locadorEntity);
+    LocadorEntity paraLocadorEntity(Locador locador);
 }

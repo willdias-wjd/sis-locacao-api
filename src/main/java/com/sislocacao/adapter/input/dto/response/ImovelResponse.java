@@ -4,6 +4,8 @@ public record ImovelResponse(
         Long id,
         String descricao,
         Boolean garagem,
-        Integer comodos
+        Integer comodos,
+        String numero,
+        Boolean status
 ) {
 }

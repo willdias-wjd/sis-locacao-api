@@ -4,5 +4,6 @@ public record LocadorResponse(
         Long id,
         String nome,
         String sobrenome,
+        String telefone,
         String email
 ) { }

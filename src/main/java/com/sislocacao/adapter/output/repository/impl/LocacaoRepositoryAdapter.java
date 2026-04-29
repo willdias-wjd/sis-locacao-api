@@ -58,4 +58,9 @@ public class LocacaoRepositoryAdapter implements ILocacaoRepository {
 
         return locacaoAdapterMapper.paraLocacao(locacaoEntity);
     }
+
+    @Override
+    public boolean existeLocacaoPorLocadorId(Long locadorId) {
+        return locacaoJpaRepository.existsByLocadorId(locadorId);
+    }
 }

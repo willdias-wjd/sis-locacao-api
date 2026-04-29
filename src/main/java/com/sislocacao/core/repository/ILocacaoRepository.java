@@ -11,4 +11,5 @@ public interface ILocacaoRepository {
     List<Locacao> buscarLocacoes();
     void excluirLocacao(long id);
     Locacao buscarLocacaoPorId(Long id);
+    boolean existeLocacaoPorLocadorId(Long locadorId);
 }

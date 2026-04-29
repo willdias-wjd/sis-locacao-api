@@ -26,6 +26,8 @@ public class ImovelEntity {
     private Integer comodos;
     private String numero;
 
+    private Boolean status;
+
     @JsonIgnore
     @OneToMany(mappedBy = "imovel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LocacaoEntity> locacoes = new ArrayList<>();

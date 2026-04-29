@@ -9,5 +9,10 @@ import org.mapstruct.Mapping;
 public interface ImovelAdapterMapper {
 
     @Mapping(target = "locacoes", ignore = true)
+    @Mapping(target = "endereco", ignore = true)
     Imovel paraImovel(ImovelEntity Imovel);
+
+    @Mapping(target = "locacoes", ignore = true)
+    @Mapping(target = "endereco", ignore = true)
+    ImovelEntity paraImovelEntity(Imovel imovel);
 }

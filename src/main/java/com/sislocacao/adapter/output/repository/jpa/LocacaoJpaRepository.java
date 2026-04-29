@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LocacaoJpaRepository extends JpaRepository<LocacaoEntity, Long > {
     LocacaoEntity findByImovelId(Long id);
+    boolean existsByLocadorId(Long locadorId);
 }

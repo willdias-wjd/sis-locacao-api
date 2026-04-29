@@ -30,4 +30,9 @@ public class LocadorEntity {
     private String profissao;
     private String genero;
     private LocalDate dataNascimento;
+    private Boolean status;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private EnderecoEntity endereco;
 }

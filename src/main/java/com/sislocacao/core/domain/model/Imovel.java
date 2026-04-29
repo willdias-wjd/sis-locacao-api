@@ -9,15 +9,20 @@ public class Imovel {
     private String descricao;
     private Boolean garagem;
     private Integer comodos;
+    private String numero;
+
+    private Boolean status;
 
     private List<Locacao> locacoes = new ArrayList<>();
     private Endereco endereco;
 
-    public Imovel(Long id, String descricao, Boolean garagem, Integer comodos, List<Locacao> locacoes, Endereco endereco) {
+    public Imovel(Long id, String descricao, Boolean garagem, Integer comodos, String numero, Boolean status, List<Locacao> locacoes, Endereco endereco) {
         this.id = id;
         this.descricao = descricao;
         this.garagem = garagem;
         this.comodos = comodos;
+        this.numero = numero;
+        this.status = status;
         this.locacoes = locacoes;
         this.endereco = endereco;
     }
@@ -36,6 +41,14 @@ public class Imovel {
 
     public Integer getComodos() {
         return comodos;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public Boolean getStatus() {
+        return status;
     }
 
     public List<Locacao> getLocacoes() {
