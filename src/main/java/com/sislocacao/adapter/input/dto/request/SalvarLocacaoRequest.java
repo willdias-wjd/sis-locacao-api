@@ -1,13 +1,15 @@
 package com.sislocacao.adapter.input.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record SalvarLocacaoRequest(
-        LocalDate dataDeInicio,
-        Integer tempoDeContrato,
-        BigDecimal valorAluguel,
-        Long idInquilino,
-        Long idImovel,
-        Long idLocador
+        @NotBlank LocalDate dataDeInicio,
+        @NotBlank Integer tempoDeContrato,
+        @NotBlank BigDecimal valorAluguel,
+        @NotBlank Long idInquilino,
+        @NotBlank Long idImovel,
+        @NotBlank Long idLocador
 ) { }

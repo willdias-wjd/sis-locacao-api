@@ -6,6 +6,7 @@ import com.sislocacao.adapter.input.mapper.InquilinoMapper;
 import com.sislocacao.core.domain.model.Inquilino;
 import com.sislocacao.core.usecase.inquilino.command.SalvarInquilinoCommand;
 import com.sislocacao.ports.input.*;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class InquilinoController {
     }
 
     @PostMapping
-    public ResponseEntity<InquilinoResponse> criarInquilino(@RequestBody SalvarInquilinoRequest request){
+    public ResponseEntity<InquilinoResponse> criarInquilino(@Valid @RequestBody SalvarInquilinoRequest request){
         SalvarInquilinoCommand command = inquilinoMapper.paraSalvarInquilinoCommand(request);
         Inquilino inquilino = salvarInquilinoInputPort.executar(command);
         InquilinoResponse response = inquilinoMapper.paraInquilinoResponse(inquilino);
@@ -59,7 +60,7 @@ public class InquilinoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<InquilinoResponse> atualizarInquilino(@RequestBody SalvarInquilinoRequest request, @PathVariable Long id){
+    public ResponseEntity<InquilinoResponse> atualizarInquilino(@Valid @RequestBody SalvarInquilinoRequest request, @PathVariable Long id){
         SalvarInquilinoCommand command = inquilinoMapper.paraSalvarInquilinoCommand(request);
         Inquilino inquilino = atualizarInquilinoInputPort.executar(command, id);
         InquilinoResponse response = inquilinoMapper.paraInquilinoResponse(inquilino);

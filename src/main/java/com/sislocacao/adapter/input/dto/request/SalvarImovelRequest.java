@@ -1,9 +1,12 @@
 package com.sislocacao.adapter.input.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public record SalvarImovelRequest(
-        String descricao,
-        Boolean garagem,
-        Integer comodos,
-        String numero,
-        Long enderecoId
+        @NotBlank String descricao,
+        @NotNull Boolean garagem,
+        @NotNull Integer comodos,
+        @NotBlank String numero,
+        @NotNull Long enderecoId
 ) { }
