@@ -24,6 +24,12 @@ public class AtualizarImovelUseCase implements AtualizarImovelInputPort {
     public Imovel executar(SalvarImovelCommand command, Long idImovel) {
         Imovel existente = buscarImovelPorIdInputPort.execute(idImovel);
 
+        Imovel atualizado = criarImovelFactory(command, existente);
+
+        return imovelRepository.atualizarImovel(atualizado);
+    }
+
+    private static Imovel criarImovelFactory(SalvarImovelCommand command, Imovel existente) {
         Imovel atualizado = new Imovel(
                 existente.getId(),
                 command.getDescricao(),
@@ -34,8 +40,7 @@ public class AtualizarImovelUseCase implements AtualizarImovelInputPort {
                 existente.getLocacoes() == null ? new ArrayList<>() : existente.getLocacoes(),
                 existente.getEndereco()
         );
-
-        return imovelRepository.atualizarImovel(atualizado);
+        return atualizado;
     }
 }
 

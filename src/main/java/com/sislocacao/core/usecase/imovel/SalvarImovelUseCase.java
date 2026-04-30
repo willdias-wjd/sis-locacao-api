@@ -19,6 +19,11 @@ public class SalvarImovelUseCase implements SalvarImovelInputPort {
 
     @Override
     public Imovel executar(SalvarImovelCommand command) {
+        Imovel imovel = criarImovelFactory(command);
+        return imovelRepository.salvarImovel(imovel);
+    }
+
+    private static Imovel criarImovelFactory(SalvarImovelCommand command) {
         Imovel imovel = new Imovel(
                 null,
                 command.getDescricao(),
@@ -29,6 +34,6 @@ public class SalvarImovelUseCase implements SalvarImovelInputPort {
                 new ArrayList<>(),
                 null
         );
-        return imovelRepository.salvarImovel(imovel);
+        return imovel;
     }
 }

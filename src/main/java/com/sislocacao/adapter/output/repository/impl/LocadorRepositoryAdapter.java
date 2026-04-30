@@ -66,6 +66,17 @@ public class LocadorRepositoryAdapter implements ILocadorRepository {
         LocadorEntity entity = locadorJpaRepository.findById(locador.getId())
                 .orElseThrow(() -> new RuntimeException("Locador não encontrado com id: " + locador.getId()));
 
+        criarLocadorEntityFactory(locador, entity);
+
+        return locadorAdapterMapper.paraLocador(locadorJpaRepository.save(entity));
+    }
+
+    @Override
+    public void excluirLocador(Long id) {
+        locadorJpaRepository.deleteById(id);
+    }
+
+    private static void criarLocadorEntityFactory(Locador locador, LocadorEntity entity) {
         entity.setNome(locador.getNome());
         entity.setSobrenome(locador.getSobrenome());
         entity.setCpf(locador.getCpf());
@@ -86,12 +97,5 @@ public class LocadorRepositoryAdapter implements ILocadorRepository {
             entity.getEndereco().setCidade(locador.getEndereco().getCidade());
             entity.getEndereco().setCep(locador.getEndereco().getCep());
         }
-
-        return locadorAdapterMapper.paraLocador(locadorJpaRepository.save(entity));
-    }
-
-    @Override
-    public void excluirLocador(Long id) {
-        locadorJpaRepository.deleteById(id);
     }
 }

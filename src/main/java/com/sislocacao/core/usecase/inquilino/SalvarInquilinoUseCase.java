@@ -19,6 +19,11 @@ public class SalvarInquilinoUseCase implements SalvarInquilinoInputPort {
 
     @Override
     public Inquilino executar(SalvarInquilinoCommand command) {
+        Inquilino inquilino = criarInquilinoFactory(command);
+        return inquilinoRepository.salvarInquilino(inquilino);
+    }
+
+    private static Inquilino criarInquilinoFactory(SalvarInquilinoCommand command) {
         Inquilino inquilino = new Inquilino(
                 null,
                 command.getNome(),
@@ -34,6 +39,6 @@ public class SalvarInquilinoUseCase implements SalvarInquilinoInputPort {
                 command.getDataNascimento(),
                 Boolean.TRUE
         );
-        return inquilinoRepository.salvarInquilino(inquilino);
+        return inquilino;
     }
 }

@@ -24,6 +24,12 @@ public class AtualizarInquilinoUseCase implements AtualizarInquilinoInputPort {
     public Inquilino executar(SalvarInquilinoCommand command, Long idInquilino) {
         Inquilino existente = buscarInquilinoPorIdInputPort.executar(idInquilino);
 
+        Inquilino atualizado = criarInquilinoFactory(command, existente);
+
+        return inquilinoRepository.atualizarInquilino(atualizado);
+    }
+
+    private static Inquilino criarInquilinoFactory(SalvarInquilinoCommand command, Inquilino existente) {
         Inquilino atualizado = new Inquilino(
                 existente.getId(),
                 command.getNome(),
@@ -39,7 +45,6 @@ public class AtualizarInquilinoUseCase implements AtualizarInquilinoInputPort {
                 command.getDataNascimento(),
                 Boolean.TRUE
         );
-
-        return inquilinoRepository.atualizarInquilino(atualizado);
+        return atualizado;
     }
 }
