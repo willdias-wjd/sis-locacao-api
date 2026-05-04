@@ -15,7 +15,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "TB_IMOVEIS")
+@Table(name = "TB_IMOVEIS", uniqueConstraints = {
+        @UniqueConstraint(name = "uk_imovel_numero_endereco", columnNames = {"numero", "endereco_id"})
+})
 public class ImovelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +34,7 @@ public class ImovelEntity {
     @OneToMany(mappedBy = "imovel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LocacaoEntity> locacoes = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "endereco_id")
     private EnderecoEntity endereco;
 }

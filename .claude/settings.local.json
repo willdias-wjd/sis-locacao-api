@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Projetos\\\\Backend\\\\Java\\\\SisLocacao\\\\api\\\\src\" -Recurse -Directory)",
-      "Bash(Select-Object -First 20)"
+      "Bash(Select-Object -First 20)",
+      "Bash(Get-Content *)",
+      "PowerShell(\\(Get-Content \"C:\\\\Projetos\\\\Backend\\\\Java\\\\SisLocacao\\\\api\\\\src\\\\main\\\\java\\\\com\\\\sislocacao\\\\core\\\\usecase\\\\imovel\\\\ExcluirImovelUseCase.java\" | Measure-Object -Line\\).Lines)",
+      "Bash(New-Item -ItemType File -Path \"C:\\\\Projetos\\\\Backend\\\\Java\\\\SisLocacao\\\\api\\\\src\\\\main\\\\java\\\\com\\\\sislocacao\\\\adapter\\\\input\\\\dto\\\\response\\\\EnderecoResponse.java\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(Write-Output \"ok\")",
+      "PowerShell(New-Item *)"
     ]
   }
 }

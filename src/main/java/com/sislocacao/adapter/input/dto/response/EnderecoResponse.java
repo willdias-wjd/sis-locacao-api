@@ -6,4 +6,4 @@ public record EnderecoResponse(
         String bairro,
         String cidade,
         String cep
-) { }
+) {}

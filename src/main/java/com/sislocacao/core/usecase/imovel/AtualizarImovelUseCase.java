@@ -1,8 +1,10 @@
 package com.sislocacao.core.usecase.imovel;
 
 import com.sislocacao.core.common.DomainComponent;
+import com.sislocacao.core.domain.model.Endereco;
 import com.sislocacao.core.domain.model.Imovel;
 import com.sislocacao.core.repository.IImovelRepository;
+import com.sislocacao.core.usecase.imovel.command.EnderecoCommand;
 import com.sislocacao.core.usecase.imovel.command.SalvarImovelCommand;
 import com.sislocacao.ports.input.AtualizarImovelInputPort;
 import com.sislocacao.ports.input.BuscarImovelPorIdInputPort;
@@ -23,14 +25,14 @@ public class AtualizarImovelUseCase implements AtualizarImovelInputPort {
     @Override
     public Imovel executar(SalvarImovelCommand command, Long idImovel) {
         Imovel existente = buscarImovelPorIdInputPort.execute(idImovel);
-
         Imovel atualizado = criarImovelFactory(command, existente);
-
         return imovelRepository.atualizarImovel(atualizado);
     }
 
     private static Imovel criarImovelFactory(SalvarImovelCommand command, Imovel existente) {
-        Imovel atualizado = new Imovel(
+        EnderecoCommand ec = command.getEndereco();
+        Endereco endereco = new Endereco(ec.getLogradouro(), ec.getEstado(), ec.getBairro(), ec.getCidade(), ec.getCep());
+        return new Imovel(
                 existente.getId(),
                 command.getDescricao(),
                 command.getGaragem(),
@@ -38,9 +40,7 @@ public class AtualizarImovelUseCase implements AtualizarImovelInputPort {
                 command.getNumero(),
                 existente.getStatus(),
                 existente.getLocacoes() == null ? new ArrayList<>() : existente.getLocacoes(),
-                existente.getEndereco()
+                endereco
         );
-        return atualizado;
     }
 }
-

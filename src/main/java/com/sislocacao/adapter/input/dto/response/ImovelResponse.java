@@ -6,6 +6,7 @@ public record ImovelResponse(
         Boolean garagem,
         Integer comodos,
         String numero,
-        Boolean status
+        Boolean status,
+        EnderecoResponse endereco
 ) {
 }

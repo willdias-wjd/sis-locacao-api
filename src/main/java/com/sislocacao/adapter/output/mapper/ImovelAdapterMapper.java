@@ -5,14 +5,12 @@ import com.sislocacao.core.domain.model.Imovel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {EnderecoAdapterMapper.class})
 public interface ImovelAdapterMapper {
 
     @Mapping(target = "locacoes", ignore = true)
-    @Mapping(target = "endereco", ignore = true)
-    Imovel paraImovel(ImovelEntity Imovel);
+    Imovel paraImovel(ImovelEntity imovel);
 
     @Mapping(target = "locacoes", ignore = true)
-    @Mapping(target = "endereco", ignore = true)
     ImovelEntity paraImovelEntity(Imovel imovel);
 }

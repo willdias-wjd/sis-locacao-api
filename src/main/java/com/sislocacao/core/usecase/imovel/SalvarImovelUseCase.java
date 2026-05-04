@@ -1,8 +1,10 @@
 package com.sislocacao.core.usecase.imovel;
 
 import com.sislocacao.core.common.DomainComponent;
+import com.sislocacao.core.domain.model.Endereco;
 import com.sislocacao.core.domain.model.Imovel;
 import com.sislocacao.core.repository.IImovelRepository;
+import com.sislocacao.core.usecase.imovel.command.EnderecoCommand;
 import com.sislocacao.core.usecase.imovel.command.SalvarImovelCommand;
 import com.sislocacao.ports.input.SalvarImovelInputPort;
 
@@ -24,16 +26,8 @@ public class SalvarImovelUseCase implements SalvarImovelInputPort {
     }
 
     private static Imovel criarImovelFactory(SalvarImovelCommand command) {
-        Imovel imovel = new Imovel(
-                null,
-                command.getDescricao(),
-                command.getGaragem(),
-                command.getComodos(),
-                command.getNumero(),
-                Boolean.TRUE,
-                new ArrayList<>(),
-                null
-        );
-        return imovel;
+        EnderecoCommand ec = command.getEndereco();
+        Endereco endereco = new Endereco(ec.getLogradouro(), ec.getEstado(), ec.getBairro(), ec.getCidade(), ec.getCep());
+        return new Imovel(null, command.getDescricao(), command.getGaragem(), command.getComodos(), command.getNumero(), Boolean.TRUE, new ArrayList<>(), endereco);
     }
 }

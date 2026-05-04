@@ -8,5 +8,5 @@ public record SalvarImovelRequest(
         @NotNull Boolean garagem,
         @NotNull Integer comodos,
         @NotBlank String numero,
-        @NotNull Long enderecoId
+        @NotNull EnderecoRequest endereco
 ) { }
