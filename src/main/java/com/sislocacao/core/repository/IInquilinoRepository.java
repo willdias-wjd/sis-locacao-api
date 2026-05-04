@@ -11,4 +11,6 @@ public interface IInquilinoRepository {
     List<Inquilino> buscarInquilinos();
     void excluirInquilino(Long id);
     Inquilino atualizarInquilino(Inquilino inquilino);
+    boolean existePorCpf(String cpf);
+    boolean existePorRg(String rg);
 }

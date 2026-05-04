@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InquilinoJpaRepository extends JpaRepository<InquilinoEntity, Long > {
+    boolean existsByCpf(String cpf);
+    boolean existsByRg(String rg);
 }

@@ -40,17 +40,17 @@ INSERT INTO TB_INQUILINOS (nome, sobrenome, cpf, rg, telefone, email, nacionalid
 VALUES ('Juliana', 'Costa', '321.654.987-99', '32.165.498-7', '(41) 99123-4567', 'juliana.costa@email.com', 'Brasileira', 'Divorciada', 'Designer Gráfica', 'Feminino', '1989-11-30', true);
 
 -- LOCADORES
-INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Marcos', 'Almeida', '111.222.333-44', '11.222.333-4', '(11) 95555-1111', 'marcos.almeida@email.com', 'Brasileira', 'Casado', 'Empresário', 'Masculino', '1978-03-18');
+INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Marcos', 'Almeida', '111.222.333-44', '11.222.333-4', '(11) 95555-1111', 'marcos.almeida@email.com', 'Brasileira', 'Casado', 'Empresário', 'Masculino', '1978-03-18', true);
 
-INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Patricia', 'Lima', '222.333.444-55', '22.333.444-5', '(21) 96666-2222', 'patricia.lima@email.com', 'Brasileira', 'Solteira', 'Arquiteta', 'Feminino', '1985-07-09');
+INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Patricia', 'Lima', '222.333.444-55', '22.333.444-5', '(21) 96666-2222', 'patricia.lima@email.com', 'Brasileira', 'Solteira', 'Arquiteta', 'Feminino', '1985-07-09', true);
 
-INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Eduardo', 'Ribeiro', '333.444.555-66', '33.444.555-6', '(31) 97777-3333', 'eduardo.ribeiro@email.com', 'Brasileira', 'Divorciado', 'Engenheiro', 'Masculino', '1980-11-27');
+INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Eduardo', 'Ribeiro', '333.444.555-66', '33.444.555-6', '(31) 97777-3333', 'eduardo.ribeiro@email.com', 'Brasileira', 'Divorciado', 'Engenheiro', 'Masculino', '1980-11-27', true);
 
-INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento)
-VALUES ('Fernanda', 'Rocha', '444.555.666-77', '44.555.666-7', '(41) 98888-4444', 'fernanda.rocha@email.com', 'Brasileira', 'Casada', 'Advogada', 'Feminino', '1992-02-14');
+INSERT INTO TB_LOCADOR (nome, sobrenome, cpf, rg, telefone, email, nacionalidade, estado_civil, profissao, genero, data_nascimento, status)
+VALUES ('Fernanda', 'Rocha', '444.555.666-77', '44.555.666-7', '(41) 98888-4444', 'fernanda.rocha@email.com', 'Brasileira', 'Casada', 'Advogada', 'Feminino', '1992-02-14', true);
 
 -- LOCACOES
 INSERT INTO TB_LOCACOES (data_de_inicio, data_de_termino, valor_aluguel, inquilino_id, imovel_id, locador_id, status)

@@ -56,4 +56,14 @@ public class InquilinoRepositoryAdapter implements IInquilinoRepository {
         InquilinoEntity updated = inquilinoJpaRepository.save(entity);
         return inquilinoAdapterMapper.paraInquilino(updated);
     }
+
+    @Override
+    public boolean existePorCpf(String cpf) {
+        return inquilinoJpaRepository.existsByCpf(cpf);
+    }
+
+    @Override
+    public boolean existePorRg(String rg) {
+        return inquilinoJpaRepository.existsByRg(rg);
+    }
 }
