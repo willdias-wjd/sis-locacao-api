@@ -1,7 +1,7 @@
 
 -- USUARIOS
 INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo, role)
-VALUES ('William', 'Dias', 'william@email.com', '123456', true, 'ADMIN');
+VALUES ('Administrador', 'admin', 'admin@admin.com', '$2a$10$bgdBZIoGOD.rstAHUFBY6u.vjUjTk8mYwD.uGvFq2sCTohB9n./oC', true, 'ADMIN');
 
 INSERT INTO TB_USUARIOS (nome, sobrenome, email, senha, ativo, role)
 VALUES ('João', 'Silva', 'joao@email.com', '123456', true, 'USER');
@@ -74,3 +74,7 @@ VALUES ('REC-004', 150.00, 90.00, 20.00, 2560.00, 'Dois mil quinhentos e sessent
 
 INSERT INTO TB_RECIBOS (numero_recibo, valor_energia, valor_agua, valor_juros, valor_total, valor_total_por_extenso, data_inicio, data_termino, locacao_id)
 VALUES ('REC-005', 145.75, 85.40, 0.00, 2531.15, 'Dois mil quinhentos e trinta e um reais e quinze centavos', '2025-03-01', '2025-03-31', 2);
+
+-- CONTRATOS
+INSERT INTO TB_TIPO_CONTRATO (nome, descricao, nome_arquivo, ativo, data_criacao, data_atualizacao)
+VALUES ('Contrato de Locação Residencial', 'Contrato padrão para locação de imóveis residenciais', 'contrato_locacao_residencial.pdf', true, '2024-01-01', '2024-01-01');

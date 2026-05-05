@@ -7,10 +7,11 @@ import com.sislocacao.core.domain.model.Inquilino;
 import com.sislocacao.core.usecase.inquilino.command.SalvarInquilinoCommand;
 import com.sislocacao.ports.input.*;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/inquilinos")
@@ -46,10 +47,13 @@ public class InquilinoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<InquilinoResponse>> listarInquilinos(){
-        List<Inquilino> inquilinos = buscarInquilinosInputPort.execute();
-        List<InquilinoResponse> responses = inquilinoMapper.paraInquilinosResponse(inquilinos);
-        return ResponseEntity.ok(responses);
+    public ResponseEntity<Page<InquilinoResponse>> listarInquilinos(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String cpf,
+            @RequestParam(required = false) Boolean status,
+            @PageableDefault(size = 10, sort = "nome") Pageable pageable) {
+        Page<Inquilino> page = buscarInquilinosInputPort.execute(nome, cpf, status, pageable);
+        return ResponseEntity.ok(page.map(inquilinoMapper::paraInquilinoResponse));
     }
 
     @GetMapping("/{id}")

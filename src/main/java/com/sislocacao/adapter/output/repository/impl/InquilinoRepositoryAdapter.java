@@ -6,11 +6,11 @@ import com.sislocacao.adapter.output.repository.jpa.entity.InquilinoEntity;
 import com.sislocacao.core.domain.model.Inquilino;
 import com.sislocacao.core.repository.IInquilinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public class InquilinoRepositoryAdapter implements IInquilinoRepository {
@@ -35,11 +35,10 @@ public class InquilinoRepositoryAdapter implements IInquilinoRepository {
     }
 
     @Override
-    public List<Inquilino> buscarInquilinos() {
-        return inquilinoJpaRepository.findAll()
-                .stream()
-                .map(inquilinoAdapterMapper::paraInquilino)
-                .collect(Collectors.toList());
+    public Page<Inquilino> buscarInquilinos(String nome, String cpf, Boolean status, Pageable pageable) {
+        return inquilinoJpaRepository
+                .findAll(InquilinoSpecification.filtrar(nome, cpf, status), pageable)
+                .map(inquilinoAdapterMapper::paraInquilino);
     }
 
     @Override

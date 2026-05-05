@@ -4,8 +4,8 @@ import com.sislocacao.core.common.DomainComponent;
 import com.sislocacao.core.domain.model.Inquilino;
 import com.sislocacao.core.repository.IInquilinoRepository;
 import com.sislocacao.ports.input.BuscarInquilinosInputPort;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @DomainComponent
 public class BuscarInquilinosUseCase implements BuscarInquilinosInputPort {
@@ -17,7 +17,7 @@ public class BuscarInquilinosUseCase implements BuscarInquilinosInputPort {
     }
 
     @Override
-    public List<Inquilino> execute() {
-        return inquilinoRepository.buscarInquilinos();
+    public Page<Inquilino> execute(String nome, String cpf, Boolean status, Pageable pageable) {
+        return inquilinoRepository.buscarInquilinos(nome, cpf, status, pageable);
     }
 }
